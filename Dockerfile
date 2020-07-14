@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-slim
+FROM openjdk:11-jre-slim
 
 ENV NEO4J_SHA256=ed6c2c52faf048919cea6da8f214071b57e3cdcfae4527957d25948a35c6c75a \
     NEO4J_TARBALL=neo4j-community-3.5.18-unix.tar.gz \

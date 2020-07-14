@@ -4,7 +4,7 @@ ENV NEO4J_SHA256=ed6c2c52faf048919cea6da8f214071b57e3cdcfae4527957d25948a35c6c75
     NEO4J_TARBALL=neo4j-community-3.5.18-unix.tar.gz \
     NEO4J_EDITION=community \
     NEO4J_HOME="/var/lib/neo4j" \
-    TINI_VERSION="v0.18.0" \
+    TINI_VERSION="v0.19.0" \
     TINI_SHA256="12d20136605531b09a2c2dac02ccee85e1b874eb322ef6baf7561cd93f93c855"
 ARG NEO4J_URI=https://dist.neo4j.org/neo4j-community-3.5.18-unix.tar.gz
 
@@ -14,7 +14,7 @@ COPY ./local-package/* /tmp/
 
 RUN apt update \
      && apt install -y curl wget gosu jq \
-     && curl -L --fail --silent --show-error "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini" > /sbin/tini \
+     && curl -L --fail --silent --show-error "https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-arm64" > /sbin/tini \
      && echo "${TINI_SHA256}  /sbin/tini" | sha256sum -c --strict --quiet \
      && chmod +x /sbin/tini \
      && curl --fail --silent --show-error --location --remote-name ${NEO4J_URI} \
